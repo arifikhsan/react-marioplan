@@ -4,7 +4,6 @@ import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
 
 const ProjectDetail = (props) => {
-  const id = props.match.params.id;
   const { project } = props;
   if (project) {
     return (
@@ -33,7 +32,6 @@ const ProjectDetail = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
